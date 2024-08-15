@@ -1,16 +1,19 @@
 #![doc = include_str!("../README.md")]
 
-#![allow(unknown_lints)]
-#![allow(clippy::all)]
-#![allow(unused_attributes)]
-#![cfg_attr(rustfmt, rustfmt::skip)]
-#![allow(box_pointers)]
-#![allow(dead_code)]
-#![allow(missing_docs)]
-#![allow(non_camel_case_types)]
-#![allow(non_snake_case)]
-#![allow(non_upper_case_globals)]
-#![allow(trivial_casts)]
-#![allow(unused_results)]
-#![allow(unused_mut)]
-include!(concat!(env!("OUT_DIR"), "/mod.rs"));
+/// # Renewed Vision module/namespace
+///
+/// Contains majority of code related to ProPresenter
+///
+/// Originates from the `rv` and `registration.core` package within protobuf files
+pub mod rv {
+	/// # ProPresenter files and internal data
+	///
+	/// Contains structs representing data within ProPresenter
+	pub mod data { include!(concat!(env!("OUT_DIR"), "/rv.data.rs")); }
+	/// # ProPresenter analytics
+	pub mod analytics { include!(concat!(env!("OUT_DIR"), "/rv.analytics.rs")); }
+	/// # ProPresenter registration
+	///
+	/// Structs related to product registration
+	pub mod registration { include!(concat!(env!("OUT_DIR"), "/registration.core.rs")); }
+}
