@@ -116,6 +116,7 @@ fn build_proto() -> Result<(), ProtobufBuildError> {
 	// Create module file
 	let mut module = OpenOptions::new()
 		.create(true)
+		.truncate(true)
 		.write(true)
 		.open(proto_out_module)
 		.unwrap();
